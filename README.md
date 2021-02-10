@@ -1,38 +1,11 @@
 # Redux Saga Garden
 
-An epic garden
-
-## Prerequisites
-
-Before you get started, make sure you have the following software installed on your computer:
-
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+The saga continues with an epic garden of epicness!
 
 ## Create database and table
 
-Create a new database called `garden` and create a `plant` table and add a few plants to your garden:
+Create a new database called `garden` and run the SQL in the `database.sql` file.
 
-```SQL
-CREATE DATABASE "garden";
-
-CREATE TABLE "plant" (
-    "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR (100) NOT NULL,
-    "kingdom" VARCHAR (100),
-    "clade" VARCHAR (100),
-    "order" VARCHAR (100),
-    "family" VARCHAR (100),
-    "subfamily" VARCHAR (100),
-    "genus" VARCHAR (100)
-);
-
-INSERT INTO "plant" ("name", "kingdom", "clade", "order", "family", "subfamily", "genus")
-VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'Rosa'),
-('Tulip', 'Plantae', 'Angiosperms', 'Liliales', 'Liliaceae', 'Lilieae', 'Tulipa'),
-('Oak', 'Plantae', 'Angiosperms', 'Fagales', 'Fagaceae', NULL, 'Quercus');
-```
 
 ## Development Setup Instructions
 
@@ -52,7 +25,7 @@ VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'R
 ## Base Mode
 
 1. Add the `redux-logger` middleware to the project for debugging
-1. Add `redux-sagas` to the project to make an API request. The route `http://localhost:5000/api/plant` returns an array of plants. Display that array on the `Garden` component on load.
+1. Add `redux-sagas` to the project to make an API request. The route `http://localhost:5000/api/plant` returns an array of plants. Display that array on the `PlantList` component on load.
 1. Add all of the plant fields to the form to allow adding a new plant to the database. The server `post` route to do this is available at `http://localhost:5000/api/plant`.
 1. Add a `Delete` button for each plant to allow it to be removed from the database. The server `delete` route to do this is available at `http://localhost:5000/api/plant/1`,  for the plant with the `id` of `1`.
 
