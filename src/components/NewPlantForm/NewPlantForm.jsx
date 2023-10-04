@@ -45,7 +45,7 @@ const NewPlantForm = () => {
   };
 
   return (
-    <Container className="Container-root" maxWidth="sm">
+    <Container maxWidth="sm">
       <Paper elevation={3} style={{ padding: "16px", marginTop: "16px" }}>
         <Typography variant="h5" gutterBottom>
           Add a plant to the garden
