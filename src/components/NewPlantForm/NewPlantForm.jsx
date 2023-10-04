@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import "./NewPlantForm.css";
+import {
+  Button,
+  TextField,
+  Typography,
+  Paper,
+  Grid,
+  Container,
+} from "@mui/material";
 
 const NewPlantForm = () => {
   const dispatch = useDispatch();
 
-  //Initial state is an OBJECT, with keys id and name
   let [newPlant, setPlant] = useState({
     name: "",
     kingdom: "",
@@ -18,8 +26,6 @@ const NewPlantForm = () => {
   const addNewPlant = (event) => {
     event.preventDefault();
     dispatch({ type: "ADD_PLANT", payload: newPlant });
-    console.log("adding plant", newPlant);
-    //updates the next plant to have a new id
     setPlant({
       name: "",
       kingdom: "",
@@ -30,98 +36,43 @@ const NewPlantForm = () => {
       genus: "",
     });
   };
-  return (
-    <div>
-      <h3>Add a plant to the garden</h3>
 
-      <form>
-        <input
-          type="text"
-          value={newPlant.name}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              name: event.target.value,
-            })
-          }
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          value={newPlant.kingdom}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              kingdom: event.target.value,
-            })
-          }
-          placeholder="Kingdom"
-        />
-        <input
-          type="text"
-          value={newPlant.clade}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              clade: event.target.value,
-            })
-          }
-          placeholder="Clade"
-        />
-        <input
-          type="text"
-          value={newPlant.order}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              order: event.target.value,
-            })
-          }
-          placeholder="Order"
-        />
-        <input
-          type="text"
-          value={newPlant.family}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              family: event.target.value,
-            })
-          }
-          placeholder="Family"
-        />
-        <input
-          type="text"
-          value={newPlant.subfamily}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              subfamily: event.target.value,
-            })
-          }
-          placeholder="Family"
-        />
-        <input
-          type="text"
-          value={newPlant.genus}
-          onChange={() =>
-            setPlant({
-              ...newPlant,
-              genus: event.target.value,
-            })
-          }
-          placeholder="Genus"
-        />
-        {/* <input
-          type="submit"
-          value="Add New Plant"
-          
-        /> */}
-        <button type="submit" onClick={addNewPlant}>
-          Add New Plant
-        </button>
-      </form>
-    </div>
+  const handleChange = (prop) => (event) => {
+    setPlant({
+      ...newPlant,
+      [prop]: event.target.value,
+    });
+  };
+
+  return (
+    <Container className="Container-root" maxWidth="sm">
+      <Paper elevation={3} style={{ padding: "16px", marginTop: "16px" }}>
+        <Typography variant="h5" gutterBottom>
+          Add a plant to the garden
+        </Typography>
+        <form onSubmit={addNewPlant}>
+          <Grid container spacing={2}>
+            {Object.keys(newPlant).map((key) => (
+              <Grid item xs={12} key={key}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label={key.charAt(0).toUpperCase() + key.slice(1)} // Capitalize label
+                  value={newPlant[key]}
+                  onChange={handleChange(key)}
+                  required
+                />
+              </Grid>
+            ))}
+            <Grid item xs={12}>
+              <Button variant="contained" color="primary" type="submit">
+                Add New Plant
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
+    </Container>
   );
 };
 
