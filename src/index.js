@@ -19,14 +19,14 @@ const startingPlantArray = [
   { id: 3, name: "Oak" },
 ];
 
-const plantList = (state = startingPlantArray, action) => {
-  switch (action.type) {
-    case "ADD_PLANT":
-      return [...state, action.payload];
-    default:
-      return state;
-  }
-};
+// const plantList = (state = startingPlantArray, action) => {
+//   switch (action.type) {
+//     case "ADD_PLANT":
+//       return [...state, action.payload];
+//     default:
+//       return state;
+//   }
+// };
 
 const storeInstance = createStore(
   rootReducer,

@@ -9,7 +9,7 @@ function PlantList() {
   const plantsReducer = useSelector((store) => store.plant.plantsReducer);
 
   useEffect(() => {
-    console.log("component did mount");
+    //console.log("component did mount");
     dispatch({ type: "FETCH_PLANTS" });
     // dispatch an action to request the plantList from the API
   }, []);
@@ -22,7 +22,6 @@ function PlantList() {
           return <PlantItem key={plantItem.id} plantItem={plantItem} />;
         })}
       </ul>
-      {/* <pre>{JSON.stringify(reduxState)}</pre> */}
     </div>
   );
 }

@@ -1,12 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-function PlantItem(props) {
-  //   const dispatch = useDispatch(); don't need until delete button
+function PlantItem({ plantItem }) {
+  const dispatch = useDispatch();
   //   console.log("props: ", props);
+  //console.log(plantItem);
   return (
     <li>
-      <span>{props.plantItem.name}</span>
+      <span>{plantItem.name}</span>
+      <span></span>
+      <button
+        onClick={() =>
+          dispatch({ type: "DELETE_PLANT", payload: plantItem.id })
+        }
+      >
+        Remove
+      </button>
     </li>
   );
 }

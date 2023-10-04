@@ -5,11 +5,19 @@ const NewPlantForm = () => {
   const dispatch = useDispatch();
 
   //Initial state is an OBJECT, with keys id and name
-  let [newPlant, setPlant] = useState({ id: 4, name: "" });
+  let [newPlant, setPlant] = useState({
+    name: "",
+    kingdom: "",
+    clade: "",
+    order: "",
+    family: "",
+    subfamily: "",
+    genus: "",
+  });
 
   const handleNameChange = (event) => {
     console.log("event happened");
-    //Similar to in redux -- we dont want to get rid of the id field when we update name
+    //Similar to in redux -- we don't want to get rid of the id field when we update name
     setPlant({ ...newPlant, name: event.target.value });
   };
 
@@ -22,10 +30,16 @@ const NewPlantForm = () => {
   return (
     <div>
       <h3>This is the form</h3>
-      <pre>{JSON.stringify(newPlant)}</pre>
-      <form onSubmit={addNewPlant}>
+      {/* <pre>{JSON.stringify(newPlant)}</pre> */}
+
+      <form>
         <input type="text" value={newPlant.name} onChange={handleNameChange} />
-        <input type="submit" value="Add New Plant" />
+        {/* <input
+          type="submit"
+          value="Add New Plant"
+          
+        /> */}
+        <button onClick={addNewPlant}>Add New Plant</button>
       </form>
     </div>
   );

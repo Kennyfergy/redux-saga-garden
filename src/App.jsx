@@ -11,7 +11,6 @@ function App() {
         <h1>Welcome to your garden!</h1>
       </header>
       <Garden />
-      <PlantList />
     </div>
   );
 }
