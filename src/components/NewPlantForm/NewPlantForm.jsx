@@ -15,26 +15,20 @@ const NewPlantForm = () => {
     genus: "",
   });
 
-  const handleNameChange = (event) => {
-    console.log("event happened");
-    //Similar to in redux -- we don't want to get rid of the id field when we update name
-    setPlant({
-      ...newPlant,
-      name: event.target.value,
-    });
-  };
-  const handleKingdomChange = (event) => {
-    setPlant({
-      ...newPlant,
-      kingdom: event.target.value,
-    });
-  };
   const addNewPlant = (event) => {
     event.preventDefault();
     dispatch({ type: "ADD_PLANT", payload: newPlant });
     console.log("adding plant", newPlant);
     //updates the next plant to have a new id
-    setPlant({ name: "", kingdom: "" });
+    setPlant({
+      name: "",
+      kingdom: "",
+      clade: "",
+      order: "",
+      family: "",
+      subfamily: "",
+      genus: "",
+    });
   };
   return (
     <div>
@@ -44,14 +38,79 @@ const NewPlantForm = () => {
         <input
           type="text"
           value={newPlant.name}
-          onChange={handleNameChange}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              name: event.target.value,
+            })
+          }
           placeholder="Name"
         />
         <input
           type="text"
           value={newPlant.kingdom}
-          onChange={handleKingdomChange}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              kingdom: event.target.value,
+            })
+          }
           placeholder="Kingdom"
+        />
+        <input
+          type="text"
+          value={newPlant.clade}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              clade: event.target.value,
+            })
+          }
+          placeholder="Clade"
+        />
+        <input
+          type="text"
+          value={newPlant.order}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              order: event.target.value,
+            })
+          }
+          placeholder="Order"
+        />
+        <input
+          type="text"
+          value={newPlant.family}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              family: event.target.value,
+            })
+          }
+          placeholder="Family"
+        />
+        <input
+          type="text"
+          value={newPlant.subfamily}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              subfamily: event.target.value,
+            })
+          }
+          placeholder="Family"
+        />
+        <input
+          type="text"
+          value={newPlant.genus}
+          onChange={() =>
+            setPlant({
+              ...newPlant,
+              genus: event.target.value,
+            })
+          }
+          placeholder="Genus"
         />
         {/* <input
           type="submit"
