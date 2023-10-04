@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import "./PlantDetails.css";
 import {
   Table,
   TableBody,
@@ -9,16 +10,22 @@ import {
   TableRow,
   TableCell,
   Paper,
+  Container,
+  Button,
 } from "@mui/material";
 
 function PlantDetails() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     //console.log("component did mount");
     dispatch({ type: "FETCH_PLANTS" });
     // dispatch an action to request the plantList from the API
   }, []);
+  const goBack = () => {
+    history.push("/plants");
+  };
 
   const { id } = useParams();
   const details = useSelector((store) => store.plant.plantsReducer);
@@ -28,11 +35,21 @@ function PlantDetails() {
   const plant = details.find((plantItem) => plantItem.id === Number(id));
 
   return (
-    <div>
+    <Container className="plant-details-container">
       <h2>Plant Details</h2>
+      <div className="button-container">
+        <Button
+          onClick={goBack}
+          variant="contained"
+          color="primary"
+          className="add-plant-button"
+        >
+          Go Back
+        </Button>
+      </div>
       {plant ? (
         <>
-          <div>
+          <div className="table-container">
             <TableContainer component={Paper}>
               <Table>
                 <TableHead>
@@ -56,17 +73,15 @@ function PlantDetails() {
                     <TableCell>{plant.subfamily}</TableCell>
                     <TableCell>{plant.genus}</TableCell>
                   </TableRow>
-                  {/* Add more rows here */}
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
         </>
       ) : (
-        <p>Plant not found for ID: {id}</p>
+        <p className="not-found">Plant not found for ID: {id}</p>
       )}
-      {/* Add more plant details here */}
-    </div>
+    </Container>
   );
 }
 

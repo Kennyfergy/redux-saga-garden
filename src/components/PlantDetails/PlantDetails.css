@@ -1,0 +1,60 @@
+.plant-details-container {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #228b22; /* ForestGreen */
+  text-align: center;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.not-found {
+  color: #8b0000; /* DarkRed */
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Style table headers */
+.table-container .MuiTableHead-root {
+  background-color: #228b22; /* ForestGreen */
+}
+
+.table-container .MuiTableCell-head {
+  color: white;
+  font-weight: bold;
+}
+
+/* Style table rows */
+.table-container .MuiTableRow-root:nth-child(odd) {
+  background-color: #f0f8ff; /* LightCyan */
+}
+
+.table-container .MuiTableRow-root:nth-child(even) {
+  background-color: #e0f7fa; /* LightBlueLace */
+}
+
+.table-container .MuiTableCell-root {
+  color: #2f4f4f; /* DarkSlateGray */
+}
+.button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-plant-button {
+  background-color: #228b22; /* ForestGreen */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.add-plant-button:hover {
+  background-color: #006400; /* DarkGreen */
+}
