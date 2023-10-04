@@ -2,11 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-
 import App from "./App";
-
 import logger from "redux-logger";
+//import saga middleware
+import createSagaMiddleware from "redux-saga";
 
+import rootReducer from "./redux/reducers/_root.reducer";
+import rootSaga from "./redux/sagas/_root.saga";
+
+//create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
 // this startingPlantArray should eventually be removed
 const startingPlantArray = [
   { id: 1, name: "Rose" },
@@ -23,13 +28,16 @@ const plantList = (state = startingPlantArray, action) => {
   }
 };
 
-const store = createStore(
-  combineReducers({ plantList }),
-  applyMiddleware(logger)
+const storeInstance = createStore(
+  rootReducer,
+
+  applyMiddleware(sagaMiddleware, logger)
 );
 
+sagaMiddleware.run(rootSaga);
+
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={storeInstance}>
     <App />
   </Provider>,
   document.getElementById("react-root")
