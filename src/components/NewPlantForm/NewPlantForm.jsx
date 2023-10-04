@@ -18,28 +18,51 @@ const NewPlantForm = () => {
   const handleNameChange = (event) => {
     console.log("event happened");
     //Similar to in redux -- we don't want to get rid of the id field when we update name
-    setPlant({ ...newPlant, name: event.target.value });
+    setPlant({
+      ...newPlant,
+      name: event.target.value,
+    });
   };
-
+  const handleKingdomChange = (event) => {
+    //console.log("event happened");
+    //Similar to in redux -- we don't want to get rid of the id field when we update name
+    setPlant({
+      ...newPlant,
+      kingdom: event.target.value,
+    });
+  };
   const addNewPlant = (event) => {
     event.preventDefault();
     dispatch({ type: "ADD_PLANT", payload: newPlant });
+    console.log("adding plant", newPlant);
     //updates the next plant to have a new id
-    setPlant({ id: newPlant.id + 1, name: "" });
+    setPlant({ name: "", kingdom: "" });
   };
   return (
     <div>
       <h3>This is the form</h3>
-      {/* <pre>{JSON.stringify(newPlant)}</pre> */}
 
       <form>
-        <input type="text" value={newPlant.name} onChange={handleNameChange} />
+        <input
+          type="text"
+          value={newPlant.name}
+          onChange={handleNameChange}
+          placeholder="Name"
+        />
+        <input
+          type="text"
+          value={newPlant.kingdom}
+          onChange={handleKingdomChange}
+          placeholder="Kingdom"
+        />
         {/* <input
           type="submit"
           value="Add New Plant"
           
         /> */}
-        <button onClick={addNewPlant}>Add New Plant</button>
+        <button type="submit" onClick={addNewPlant}>
+          Add New Plant
+        </button>
       </form>
     </div>
   );

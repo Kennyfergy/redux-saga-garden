@@ -13,11 +13,11 @@ import rootSaga from "./redux/sagas/_root.saga";
 //create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 // this startingPlantArray should eventually be removed
-const startingPlantArray = [
-  { id: 1, name: "Rose" },
-  { id: 2, name: "Tulip" },
-  { id: 3, name: "Oak" },
-];
+// const startingPlantArray = [
+//   { id: 1, name: "Rose" },
+//   { id: 2, name: "Tulip" },
+//   { id: 3, name: "Oak" },
+// ];
 
 // const plantList = (state = startingPlantArray, action) => {
 //   switch (action.type) {
