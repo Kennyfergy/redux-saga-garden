@@ -13,12 +13,9 @@ function App() {
           <h1>Welcome to your garden!</h1>
           <nav>
             <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              {/* <li>
-                <Link to="/plants">Plants</Link>
-              </li> */}
+              <Link to="/">Home</Link>
+              <br />
+              <Link to="/plants">Plants</Link>
             </ul>
           </nav>
         </header>
@@ -26,9 +23,9 @@ function App() {
           <Route path="/" exact>
             <Garden />
           </Route>
-          {/* <Route path="/plants" exact>
+          <Route path="/plants" exact>
             <PlantList />
-          </Route> */}
+          </Route>
           <Route path="/plant/:id">
             <PlantDetails />
           </Route>

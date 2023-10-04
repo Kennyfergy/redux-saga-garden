@@ -24,8 +24,6 @@ const NewPlantForm = () => {
     });
   };
   const handleKingdomChange = (event) => {
-    //console.log("event happened");
-    //Similar to in redux -- we don't want to get rid of the id field when we update name
     setPlant({
       ...newPlant,
       kingdom: event.target.value,
@@ -40,7 +38,7 @@ const NewPlantForm = () => {
   };
   return (
     <div>
-      <h3>This is the form</h3>
+      <h3>Add a plant to the garden</h3>
 
       <form>
         <input

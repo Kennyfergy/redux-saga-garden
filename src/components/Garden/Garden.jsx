@@ -1,6 +1,6 @@
 import React from "react";
 import NewPlantForm from "../NewPlantForm/NewPlantForm";
-import PlantList from "../PlantList/PlantList";
+// import PlantList from "../PlantList/PlantList";
 
 function Garden() {
   return (
@@ -10,7 +10,6 @@ function Garden() {
       {/* Thanks to redux, there is no need to pass along props! */}
       {/* <NewPlantForm />*/}
       <NewPlantForm />
-      <PlantList />
     </div>
   );
 }

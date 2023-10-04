@@ -8,7 +8,7 @@ function PlantDetails() {
 
   return (
     <div>
-      <h3>Details about plant ID: {id}</h3>
+      <h3>Details about plant: {id}</h3>
       {/* Render detailed information about the plant here */}
       {/* {plantItem.kingdom} */}
     </div>
