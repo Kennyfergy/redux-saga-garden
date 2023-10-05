@@ -5,7 +5,7 @@ import NewPlantForm from "../NewPlantForm/NewPlantForm";
 function Garden() {
   return (
     <div>
-      <h2>This is the garden!</h2>
+      <h2></h2>
       {/* Redux State isn't needed in the garden, it is just a parent component */}
       {/* Thanks to redux, there is no need to pass along props! */}
       {/* <NewPlantForm />*/}

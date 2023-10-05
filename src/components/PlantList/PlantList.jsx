@@ -16,7 +16,7 @@ function PlantList() {
 
   return (
     <div>
-      <h3>This is the plant list</h3>
+      <h3>Look at all these plants!</h3>
       <ul>
         {plantsReducer.map((plantItem) => {
           return <PlantItem key={plantItem.id} plantItem={plantItem} />;
