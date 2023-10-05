@@ -2,15 +2,17 @@
   text-align: center;
 }
 
+.app-bar {
+  background-color: #227522 !important;
+}
+
 .App-header {
   background-color: darkgreen;
   min-height: 70px;
   padding: 20px;
   color: white;
 }
-.app-bar {
-  background-color: #228b22; /* ForestGreen */
-}
+
 .title {
   flex-grow: 1;
 }

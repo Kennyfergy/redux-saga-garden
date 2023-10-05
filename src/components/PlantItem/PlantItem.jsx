@@ -7,6 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
+import "./PlantItem.css";
 
 const theme = createTheme({
   palette: {
@@ -30,14 +31,17 @@ function PlantItem({ plantItem }) {
   return (
     <ThemeProvider theme={theme}>
       <List>
-        <ListItem>
+        <ListItem className="list-item">
           <ListItemText
             primary={plantItem.name}
             secondary={plantItem.kingdom}
+            classes={{
+              primary: "list-item-text-primary",
+              secondary: "list-item-text-secondary",
+            }}
           />
           <Button
             variant="contained"
-            color="primary"
             onClick={handleSeeMoreClick}
             style={{ marginRight: "8px" }}
           >
@@ -53,7 +57,7 @@ function PlantItem({ plantItem }) {
             Remove
           </Button>
         </ListItem>
-        <Divider />
+        <Divider className="divider" />
       </List>
     </ThemeProvider>
   );

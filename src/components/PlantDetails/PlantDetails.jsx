@@ -18,6 +18,18 @@ function PlantDetails() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  //   const [isEditing, setIsEditing] = useState(false);
+  //   const [updatedDetails, setUpdatedDetails] = useState(plant);
+
+  //   const handleEdit = () => {
+  //     setIsEditing(true);
+  //   };
+
+  //   const handleSave = () => {
+  //     dispatch(updatePlane(updatedDetails));
+  //     setIsEditing(false);
+  //   };
+
   useEffect(() => {
     //console.log("component did mount");
     dispatch({ type: "FETCH_PLANTS" });
